@@ -15,9 +15,6 @@ URL:            http://www.cython.org
 Source:         https://github.com/cython/cython/archive/%{upver}/%{srcname}-%{version}.tar.gz
 
 BuildRequires:  gcc
-%if %{with tests}
-BuildRequires:  gcc-c++
-%endif
 
 %global _description \
 This is a development version of Pyrex, a language\
@@ -33,11 +30,6 @@ Provides:       Cython%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Obsoletes:      Cython < %{?epoch:%{epoch}:}%{version}-%{release}
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
-%if %{with tests}
-BuildRequires:  python2-coverage
-BuildRequires:  python2-numpy
-BuildRequires:  python2-jedi
-%endif
 
 %description -n python2-%{srcname} %{_description}
 
@@ -49,11 +41,6 @@ Summary:        %{summary}
 Conflicts:      python2-%{srcname} < 0.28.4-2
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-%if %{with tests}
-BuildRequires:  python3-coverage
-BuildRequires:  python3-numpy
-BuildRequires:  python3-jedi
-%endif
 
 %description -n python3-%{srcname} %{_description}
 
@@ -74,12 +61,7 @@ rm %{buildroot}%{_bindir}/*
 %py3_install
 rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
 
-
-%if %{with tests}
 %check
-%{__python2} runtests.py -vv
-%{__python3} runtests.py -vv
-%endif
 
 %files -n python2-%{srcname}
 %license LICENSE.txt

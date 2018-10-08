@@ -9,7 +9,7 @@
 # https://github.com/cython/cython/issues/1982
 %bcond_with tests
 
-Name:           Cython
+Name:           cython
 %global upver 0.29rc2
 Version:        0.29~rc2
 Release:        1%{?dist}
@@ -30,11 +30,11 @@ for writing Python extension modules.
 %package -n python2-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python2-%{srcname}}
-Provides:       Cython = %{?epoch:%{epoch}:}%{version}-%{release}
-Provides:       Cython%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes:      Cython < %{?epoch:%{epoch}:}%{version}-%{release}
-BuildRequires:  python2-devel
-BuildRequires:  python2-setuptools
+Provides:       cython = %{?epoch:%{epoch}:}%{version}-%{release}
+Provides:       cython%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
+Obsoletes:      cython < %{?epoch:%{epoch}:}%{version}-%{release}
+BuildRequires:  python-devel
+BuildRequires:  python-setuptools
 
 %description -n python2-%{srcname} %{_description}
 
@@ -45,7 +45,6 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 Conflicts:      python2-%{srcname} < 0.28.4-2
 BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
 
 %description -n python3-%{srcname} %{_description}
 

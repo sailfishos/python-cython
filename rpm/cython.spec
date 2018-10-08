@@ -1,6 +1,11 @@
 %global srcname Cython
 %global upname cython
 
+%define python2_sitearch /%{_libdir}/python2.?/site-packages
+%define python3_sitearch /%{_libdir}/python3.?/site-packages
+%define python2_sitelib python2_sitearch
+%define python3_sitelib python3_sitearch
+
 # https://github.com/cython/cython/issues/1982
 %bcond_with tests
 

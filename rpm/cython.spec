@@ -51,19 +51,19 @@ BuildRequires:  python3-devel
 Python 3 version.
 
 %prep
-%autosetup -n %{upname}-%{upver} -p1
+%setup -q -n %{name}-%{version}/%{name}
 
 %build
-%py2_build
-%py3_build
+%{__python} setup.py build
+%{__python3} setup.py build
 
 %install
-%py2_install
+%{__python} setup.py install --skip-build --root %{buildroot}
 rm -rf %{buildroot}%{python2_sitelib}/setuptools/tests
 rm %{buildroot}%{_bindir}/*
 
-%py3_install
-rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
+%{__python3} setup.py install --skip-build --root %{buildroot}
+rm -rf %{buildroot}%{python3_sitellib}/setuptools/tests
 
 %check
 

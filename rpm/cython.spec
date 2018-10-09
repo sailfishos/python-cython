@@ -1,10 +1,14 @@
 %global srcname Cython
 %global upname cython
 
-%define python2_sitearch /%{_libdir}/python2.?/site-packages
+# To prepare for the future changes in RPM macro support
+%if ! %{defined python3_sitearch}
 %define python3_sitearch /%{_libdir}/python3.?/site-packages
-%define python2_sitelib python2_sitearch
-%define python3_sitelib python3_sitearch
+%endif
+
+%if ! %{defined python3_sitelib}
+%define python3_sitelib %{python3_sitearch}
+%endif
 
 # https://github.com/cython/cython/issues/1982
 %bcond_with tests
@@ -59,21 +63,21 @@ Python 3 version.
 
 %install
 %{__python} setup.py install --skip-build --root %{buildroot}
-rm -rf %{buildroot}%{python2_sitelib}/setuptools/tests
+rm -rf %{buildroot}%{python_sitelib}/setuptools/tests
 rm %{buildroot}%{_bindir}/*
 
 %{__python3} setup.py install --skip-build --root %{buildroot}
-rm -rf %{buildroot}%{python3_sitellib}/setuptools/tests
+rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
 
 %check
 
 %files -n python2-%{srcname}
 %license LICENSE.txt
 %doc *.txt Demos Doc Tools
-%{python2_sitearch}/%{srcname}-*.egg-info/
-%{python2_sitearch}/%{srcname}/
-%{python2_sitearch}/pyximport/
-%{python2_sitearch}/%{upname}.py*
+%{python_sitearch}/%{srcname}-*.egg-info/
+%{python_sitearch}/%{srcname}/
+%{python_sitearch}/pyximport/
+%{python_sitearch}/%{upname}.py*
 
 %files -n python3-%{srcname}
 %license LICENSE.txt

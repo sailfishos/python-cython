@@ -71,6 +71,9 @@ rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
 
 %check
 
+%clean
+rm -rf ${RPM_BUILD_ROOT}
+
 %files -n python2-%{srcname}
 %license LICENSE.txt
 %doc *.txt Demos Doc Tools

@@ -13,7 +13,7 @@
 # https://github.com/cython/cython/issues/1982
 %bcond_with tests
 
-Name:           cython
+Name:           Cython
 %global upver 0.29rc2
 Version:        0.29~rc2
 Release:        1%{?dist}
@@ -55,7 +55,7 @@ BuildRequires:  python3-devel
 Python 3 version.
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
+%setup -q -n %{name}-%{version}/%{upname}
 
 %build
 %{__python} setup.py build

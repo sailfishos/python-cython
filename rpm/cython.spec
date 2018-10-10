@@ -31,23 +31,23 @@ for writing Python extension modules.
 
 %description %{_description}
 
-%package -n python2-%{srcname}
+%package -n python-%{srcname}
 Summary:        %{summary}
-%{?python_provide:%python_provide python2-%{srcname}}
+%{?python_provide:%python_provide python-%{srcname}}
 Provides:       cython = %{?epoch:%{epoch}:}%{version}-%{release}
 Provides:       cython%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 Obsoletes:      cython < %{?epoch:%{epoch}:}%{version}-%{release}
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 
-%description -n python2-%{srcname} %{_description}
+%description -n python-%{srcname} %{_description}
 
 Python 2 version.
 
 %package -n python3-%{srcname}
 Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
-Conflicts:      python2-%{srcname} < 0.28.4-2
+Conflicts:      python-%{srcname} < 0.28.4-2
 BuildRequires:  python3-devel
 
 %description -n python3-%{srcname} %{_description}
@@ -74,7 +74,7 @@ rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
-%files -n python2-%{srcname}
+%files -n python-%{srcname}
 %license LICENSE.txt
 %doc *.txt Demos Doc Tools
 %{python_sitearch}/%{srcname}-*.egg-info/

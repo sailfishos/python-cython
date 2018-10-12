@@ -33,10 +33,8 @@ for writing Python extension modules.
 
 %package -n python-%{srcname}
 Summary:        %{summary}
-%{?python_provide:%python_provide python-%{srcname}}
 Provides:       cython = %{?epoch:%{epoch}:}%{version}-%{release}
 Provides:       cython = %{?epoch:%{epoch}:}%{version}-%{release}
-Obsoletes:      cython < %{?epoch:%{epoch}:}%{version}-%{release}
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 

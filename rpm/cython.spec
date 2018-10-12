@@ -16,7 +16,7 @@
 Name:           Cython
 %global upver 0.29rc2
 Version:        0.29~rc2
-Release:        1%{?dist}
+Release:        1
 Summary:        Language for writing Python extension modules
 
 License:        ASL 2.0

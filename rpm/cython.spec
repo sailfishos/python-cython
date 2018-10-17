@@ -42,7 +42,7 @@ Summary:        Language for writing Python extension modules
 
 License:        ASL 2.0
 URL:            http://www.cython.org
-Source:         https://github.com/cython/cython/archive/%{upver}/%{srcname}-%{version}.tar.gz
+Source:         %{name}-%{version}.tar.gz
 
 BuildRequires:  gcc
 

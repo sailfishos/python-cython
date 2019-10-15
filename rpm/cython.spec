@@ -68,6 +68,7 @@ Summary:        %{summary}
 %{?python_provide:%python_provide python3-%{srcname}}
 Conflicts:      python-%{srcname} < 0.28.4-2
 BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 
 %description -n python3-%{name} %{_description}
 

@@ -35,8 +35,7 @@
 %bcond_with tests
 
 Name:           cython
-%global upver 0.29rc2
-Version:        0.29~rc2
+Version:        0.29.14
 Release:        1
 Summary:        Language for writing Python extension modules
 

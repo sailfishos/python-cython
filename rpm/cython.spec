@@ -40,7 +40,7 @@ Release:        1
 Summary:        Language for writing Python extension modules
 
 License:        ASL 2.0
-URL:            http://www.cython.org
+URL:            https://github.com/sailfishos/python-cython
 Source:         %{name}-%{version}.tar.gz
 
 BuildRequires:  gcc

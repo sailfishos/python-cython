@@ -35,7 +35,7 @@
 %bcond_with tests
 
 Name:           cython
-Version:        0.29.14
+Version:        0.29.36
 Release:        1
 Summary:        Language for writing Python extension modules
 
@@ -66,16 +66,11 @@ Python 3 version.
 %setup -q -n %{name}-%{version}/%{name}
 
 %build
-%{__python3} setup.py build
+%py3_build
 
 %install
-%{__python3} setup.py install --skip-build --root %{buildroot}
+%py3_install
 rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
-
-%check
-
-%clean
-rm -rf ${RPM_BUILD_ROOT}
 
 %files -n python3-%{name}
 %license LICENSE.txt

@@ -22,20 +22,11 @@
 
 %global srcname Cython
 
-# To prepare for the future changes in RPM macro support
-%if ! %{defined python3_sitearch}
-%define python3_sitearch /%{_libdir}/python3.?/site-packages
-%endif
-
-%if ! %{defined python3_sitelib}
-%define python3_sitelib %{python3_sitearch}
-%endif
-
 # https://github.com/cython/cython/issues/1982
 %bcond_with tests
 
 Name:           cython
-Version:        0.29.14
+Version:        0.29.37.1
 Release:        1
 Summary:        Language for writing Python extension modules
 
@@ -66,16 +57,11 @@ Python 3 version.
 %setup -q -n %{name}-%{version}/%{name}
 
 %build
-%{__python3} setup.py build
+%py3_build
 
 %install
-%{__python3} setup.py install --skip-build --root %{buildroot}
+%py3_install
 rm -rf %{buildroot}%{python3_sitelib}/setuptools/tests
-
-%check
-
-%clean
-rm -rf ${RPM_BUILD_ROOT}
 
 %files -n python3-%{name}
 %license LICENSE.txt

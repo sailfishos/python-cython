@@ -26,7 +26,7 @@
 %bcond_with tests
 
 Name:           cython
-Version:        0.29.37.1
+Version:        3.0.11
 Release:        1
 Summary:        Language for writing Python extension modules
 
